@@ -1,11 +1,11 @@
 ---
   - name: "Database Setup"
-  hosts: localhost
-  tasks:
-  - name: "test reachability"
-  ping:
+    hosts: localhost
+    tasks:
+    - name: "test reachability"
+    ping:
   - name: "find download files"
-  find:
-    paths: ~/Downloads
-    file_type: file
+    find:
+      paths: ~/Downloads
+      file_type: file
 
