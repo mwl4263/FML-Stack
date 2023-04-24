@@ -10,7 +10,7 @@ CREATE TABLE Users(
     username VARCHAR(255) NOT NULL,
     password VARCHAR(500) NOT NULL,
     PRIMARY KEY (id)
-)
+);
 CREATE TABLE CreditCards(
     creditCardId INT NOT NULL AUTO_INCREMENT,
     creditCardNumber VARCHAR(16) NOT NULL,
@@ -21,4 +21,4 @@ CREATE TABLE CreditCards(
     PRIMARY KEY (creditCardId),
     FOREIGN KEY (creditCardHolderId) REFERENCES Users(creditCardHolderId)
 
-)
+);
