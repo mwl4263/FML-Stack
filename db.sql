@@ -9,8 +9,9 @@ CREATE TABLE Users(
     zipCode VARCHAR(10) NOT NULL,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(500) NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (creditCardHolderId)
 );
+
 CREATE TABLE CreditCards(
     creditCardId INT NOT NULL AUTO_INCREMENT,
     creditCardNumber VARCHAR(16) NOT NULL,
