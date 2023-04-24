@@ -3,9 +3,9 @@
     hosts: localhost
     tasks:
     - name: "test reachability"
-    ping:
-  - name: "find download files"
-    find:
-      paths: ~/Downloads
-      file_type: file
+      ping:
+    - name: "find download files"
+      find:
+        paths: ~/Downloads
+        file_type: file
 
