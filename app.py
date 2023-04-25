@@ -4,6 +4,8 @@ import os
 import sys
 
 
+app = flask.Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -13,6 +15,5 @@ def index():
 
 
 
-app = flask.Flask(__name__)
 
 
