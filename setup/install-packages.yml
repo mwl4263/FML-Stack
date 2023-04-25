@@ -1,8 +1,8 @@
 ---
-  - name: "Install all packages for FML stack"
+  name: "Install all packages for FML stack"
     hosts: localhost
     tasks:
-    - name: "Install Python3"
+      name: "Install Python3"
       ansible.builtin.package:
       name:
         - mysql-server
