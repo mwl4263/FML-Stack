@@ -3,11 +3,10 @@
   hosts: localhost
   tasks:
     - name: Setup Database
-      community.general.mssql_script:
+      community.mysql.mysql_query:
         login_user: root
         login_password: whatever
         login_host: localhost
         login_port: 3306
-        db: Cards
-        script: |
-          SOURCE ../db.sql
+        login_db: Cards
+        query: SOURCE ../db.sql
