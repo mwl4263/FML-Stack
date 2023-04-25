@@ -1,0 +1,12 @@
+---
+- name: Setup Database
+  hosts: localhost
+  tasks:
+    - name: Setup Database
+      login_user: root
+      login_password: whatever
+      login_host: localhost
+      login_port: 3306
+      db: Cards
+      script: |
+       SOURCE ../db.sql
