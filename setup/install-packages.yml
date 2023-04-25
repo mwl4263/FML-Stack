@@ -2,13 +2,18 @@
 - name: Install all packages for FML stack
   hosts: localhost
   tasks:
-          - name: Install Necessary Packages
-            dnf:
-                  name:
-                          - mysql-server
-                          - python3
-                          - python3-pip
-                          - git
-                          - python3-pymssql
-                  state: latest
+    - name: Install Necessary Packages
+      dnf:
+        name:
+                - mysql-server
+                - python3
+                - python3-pip
+                - git
+                - python3-pymssql
+        state: latest
+      pip:
+        name:
+            - flask
+            - mssql
+        state: latest
 
