@@ -8,6 +8,7 @@
                 - mysql-server
                 - python3
                 - python3-pip
+                - python3-devel
                 - git
                 - python3-pymssql
         state: latest
