@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content %}
-<h1>Home</h1>
+ {% extends 'base.html' %} {% block title %}Home: {{ username }}{% endblock %} {% block titleHeader %}
+<h1>Home: {{ username }}</h1>
+{% endblock %} {% block content %}
+
 <p>Welcome to my awesome homepage. My name is {{ username }} </p>
 {% endblock %}
