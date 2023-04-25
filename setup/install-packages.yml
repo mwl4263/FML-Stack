@@ -11,6 +11,7 @@
                 - git
                 - python3-pymssql
         state: latest
+    - name: Install Python Packages
       pip:
         name:
             - flask
