@@ -2,7 +2,7 @@ import flask
 import time
 import os
 import sys
-import future
+import __future__
 import mysql.connector
 
 app = flask.Flask(__name__)
