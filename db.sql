@@ -240,4 +240,4 @@ INSERT INTO CREDITCARDS(
     'Ethan Martinez',
     '09/31',
     '765'
-),
+);
