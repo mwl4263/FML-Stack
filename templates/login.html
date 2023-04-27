@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block title %}Username{% endblock %} {% block titleHeader %}
+<h1 class="text-center m-3">Login</h1>
+{% endblock %} {% block content %}
+<div class="container border border-primary rounded" style="max-width: 50%">
+    <form class="" method="post">
+
+        <div class="form-group m-3">
+            <label class="h3" for="uname"><b>Username</b></label>
+            <div class="text-left">
+                <input class="text-dark p-2 h5 rounded" type="text" placeholder="Enter Username" name="uname" required>
+            </div>
+            <label class="h3" for="psw"><b>Password</b></label>
+            <div class="text-left">
+                <input class="text-dark p-2 h5 rounded" type="password" placeholder="Enter Password" name="psw" required>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-primary" type="submit text-right">Login</button>
+            </div>
+
+        </div>
+
+    </form>
+    <hr>
+</div>
+
+{% endblock %}

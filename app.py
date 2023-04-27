@@ -6,12 +6,13 @@ import __future__
 import mysql.connector
 
 app = flask.Flask(__name__)
-db = mysql.connector.connect(user='root', password='whatever', host='localhost', database='Cards')
+db = mysql.connector.connect(user='root', password='what4k1ll3r', host='localhost', database='Cards')
 cursor = db.cursor()
 
 
 def fillDatabase():
     print("Loading the database...")
+    cursor.execute("SOURCE db.sql")
 
 
 
@@ -19,8 +20,7 @@ def fillDatabase():
 
 @app.route('/')
 def index():
-    username = "Mason Lapine"
-    return flask.render_template('index.html', username=username)
+    return flask.render_template('login.html')
 
 
 
