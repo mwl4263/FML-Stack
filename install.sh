@@ -17,7 +17,7 @@ sudo systemctl start mysqld
 sudo systemctl enable mysqld
 echo "All tasks complete."
 echo "Follow these steps to run the app:"
-echo "1. Make sure you have ran mysql_secure_installation and use password 'whatever' for the root user (all other options can be skipped by pressing the return key)."
+echo "1. Make sure you have ran mysql_secure_installation and use password 'whatever' for the root user (all other options can be skipped by pressing the return keve)."
 echo "2. 'Source db.sql' after running 'mysql -u root -p'"
 echo "3. source venv/bin/activate"
 echo "4. python3 app.py"
