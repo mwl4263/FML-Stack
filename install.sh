@@ -10,3 +10,4 @@ echo "Activated Virtual Environment."
 echo "Installing pip dependencies..."
 pip3 install -r requirements.txt
 echo "All tasks complete."
+echo "Run the app.py using python3 app.py"
