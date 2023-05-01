@@ -7,7 +7,7 @@ import __future__
 import mysql.connector
 app = Flask(__name__, template_folder='templates')
 
-db = mysql.connector.connect(user='root', password='what4k1ll3r', host='localhost', database='Cards')
+db = mysql.connector.connect(user='root', password='whatever', host='localhost', database='Cards')
 cursor = db.cursor()
 
 
