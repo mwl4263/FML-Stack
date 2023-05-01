@@ -24,10 +24,13 @@ def queryDB(query):
 
 @app.route('/home/<data>', methods=['GET'])
 def home(data):
-    print("Session Cookie for "+data + ": session=" + request.cookies.get('session'))
+    if request.cookies.get('session') is not None:
+        print("Session Cookie for " + data +
+        ": session=" + request.cookies.get('session'))
     if session.get('username') != data:
         return redirect(url_for('index'))
     else:
+
         query = "SELECT firstname, lastname, username, creditCardHolderId FROM Users WHERE username = '%s'" % (data)
         names = list(queryDB(query)[0])
         queryTwo = "SELECT * FROM CreditCards WHERE creditCardHolderId = %i" % (names[3])
