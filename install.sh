@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "Installing dependencies from dnf..."
-sudo dnf update
 sudo dnf install mysql mysql-server python3.9
 echo "dnf dependencies installed."
 echo "making virtual environment..."
