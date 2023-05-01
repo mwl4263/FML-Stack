@@ -4,9 +4,7 @@
 <div class="text-right">
     <form method="POST" action="/addPage">
         <input type="submit" class="btn btn-primary" value="Add Credit Card">
-        <button type="button" id="deleteButton" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-        Delete Credit Card
-    </button>
+        <button type="button" id="editButton" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Credit Card</button>
     </form>
 
 </div>
@@ -33,7 +31,11 @@
                 <th>{{ x[5] }}</th>
                 <th>{{ x[4] }}</th>
                 <th class="actionCol d-none">
-                    <form method="POST" action="/delete/{{ x[1] }}"><input type="submit" id="{{ x[1] }}" class="btn btn-danger" value="Delete"></form>
+                    <div class="d-flex">
+                        <form class="m-1" method="POST" action="/editPage/{{ x[1] }}"><input type="submit" id="edit-{{x[1]}}" class="btn btn-warning" value="Edit"> </form>
+                        <form class="m-1" method="POST" action="/delete/{{ x[1] }}"><input type="submit" id="delete-{{ x[1] }}" class="btn btn-danger" value="Delete"></form>
+
+                    </div>
                 </th>
             </tr>
 

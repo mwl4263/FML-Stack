@@ -23,7 +23,7 @@ def queryDB(query):
         db.commit()
     return cursor.fetchall()
 
-@app.route('/home/<data>')
+@app.route('/home/<data>', methods=['GET'])
 def home(data):
     # print(queryDB("Select * from creditcards"))
     if session.get('username') != data:
@@ -54,12 +54,31 @@ def addCard():
     return redirect(url_for('home', data=session.get('username')))
 
 
-@app.route('/delete/<number>', methods=['POST'])
+@app.route('/delete/<number>', methods=['POST', 'DELETE'])
 def delete(number):
     cardid =queryDB("Select CreditCardHolderId from Users where username = '%s'" % (session.get('username')))
     cardid = cardid[0][0]
     queryDB("DELETE FROM CreditCards WHERE creditCardNumber = '%s' AND creditCardHolderId = '%s'" % (number, cardid))
     return redirect(url_for('home', data=session.get('username')))
+
+
+@app.route('/edit', methods=['PUT', 'POST'])
+def edit():
+    cardid =queryDB("Select CreditCardHolderId from Users where username = '%s'" % (session.get('username')))
+    cardid = cardid[0][0]
+    query = "UPDATE CreditCards SET creditCardNumber = '%s', creditCardName = '%s', creditCardExpirationDate = '%s', creditCardSecurityCode = '%s' WHERE creditCardNumber = '%s' AND creditCardHolderId = '%s'" % (request.form.get('creditCardNum'), request.form.get('creditName'), request.form.get('expiration'), request.form.get('secCode'), request.form.get('creditCardNum'), cardid)
+    queryDB(query)
+    return redirect(url_for('home', data=session.get('username')))
+
+
+
+@app.route('/editPage/<number>', methods=['POST'])
+def editPage(number):
+    cardid =queryDB("Select CreditCardHolderId from Users where username = '%s'" % (session.get('username')))
+    cardid = cardid[0][0]
+    query = "SELECT * from CreditCards WHERE creditCardNumber = '%s' AND creditCardHolderId = '%s'" % (number, cardid)
+    creditData = queryDB(query)
+    return render_template('edit.html', data=creditData[0])
 
 
 @app.route('/login', methods=['POST'])
