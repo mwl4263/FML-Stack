@@ -49,7 +49,7 @@ def addPage():
 def addCard():
     cardid =queryDB("Select CreditCardHolderId from Users where username = '%s'" % (session.get('username')))
     cardid = cardid[0][0]
-    query = "INSERT INTO creditCards (creditCardHolderId, creditCardNumber, creditCardName, creditCardExpirationDate, creditCardSecurityCode) VALUES (%i, '%s', '%s', '%s', '%s')" % (
+    query = "INSERT INTO CreditCards (creditCardHolderId, creditCardNumber, creditCardName, creditCardExpirationDate, creditCardSecurityCode) VALUES (%i, '%s', '%s', '%s', '%s')" % (
         cardid, request.form.get('creditCardNum'), request.form.get('creditName'), request.form.get('expiration'), request.form.get('secCode'))
     queryDB(query)
     return redirect(url_for('home', data=session.get('username')))
