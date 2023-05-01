@@ -9,6 +9,9 @@ source venv/bin/activate
 echo "Activated Virtual Environment."
 echo "Installing pip dependencies..."
 pip3 install -r requirements.txt
+echo "Setting firewall permissions for port 3000..."
+sudo firewall-cmd --zone=public --add-port=3000/tcp --permanent
+sudo firewall-cmd --reload
 echo "All tasks complete."
 echo "Run the app.py using the following commands:"
 echo "source venv/bin/activate"
