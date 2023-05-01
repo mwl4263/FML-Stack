@@ -17,7 +17,6 @@ cursor = db.cursor()
 #     cursor.execute("SOURCE db.sql")
 
 def queryDB(query):
-    print(query)
     cursor.execute(query)
     if "delete" in query.lower() or "insert" in query.lower() or "update" in query.lower():
         db.commit()
@@ -25,7 +24,7 @@ def queryDB(query):
 
 @app.route('/home/<data>', methods=['GET'])
 def home(data):
-    # print(queryDB("Select * from creditcards"))
+    print("Session Cookie for "+data + ": session=" + request.cookies.get('session'))
     if session.get('username') != data:
         return redirect(url_for('index'))
     else:
@@ -83,11 +82,8 @@ def editPage(number):
 
 @app.route('/login', methods=['POST'])
 def login():
-    print("Login attempted")
     if request.method == "POST":
-        print("Processing POST Request")
         query = "SELECT * FROM Users WHERE username = '%s' AND password = '%s'" % (request.form.get('uname'), request.form.get('psw'))
-        print(query)
         cursor.execute(query)
         loginResults = cursor.fetchall()
         if len(loginResults) == 0:
