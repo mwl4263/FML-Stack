@@ -1,7 +1,44 @@
 {% extends 'base.html' %} {% block title %}Home: {{ username }}{% endblock %} {% block titleHeader %}
 <h1>Welcome back <span class="text-secondary">{{ firstname }} {{ lastname }} </span></h1>
 {% endblock %} {% block content %}
+<div class="text-right">
+    <form method="POST" action="/addPage">
+        <input type="submit" class="btn btn-primary" value="Add Credit Card">
+        <button type="button" id="deleteButton" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+        Delete Credit Card
+    </button>
+    </form>
 
+</div>
+<div>
+    <h2>Your Credit Cards:</h2>
+    <table class="table">
+        <thead>
+            <tr>
 
-<p></p>
+                <th scope="col">Name</th>
+                <th scope="col">Credit Card #</th>
+
+                <th scope="col">Security Code</th>
+                <th scope="col">Expiration Date</th>
+                <th class="d-none" id="actionHead" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in cards %}
+            <tr>
+
+                <th>{{ x[3] }}</th>
+                <th>{{ x[1] }}</th>
+                <th>{{ x[5] }}</th>
+                <th>{{ x[4] }}</th>
+                <th class="actionCol d-none">
+                    <form method="POST" action="/delete/{{ x[1] }}"><input type="submit" id="{{ x[1] }}" class="btn btn-danger" value="Delete"></form>
+                </th>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
