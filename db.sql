@@ -25,12 +25,12 @@ CREATE TABLE CreditCards(
 );
 
 -- Users table
-INSERT INTO USERS(
-    FIRSTNAME,
-    LASTNAME,
-    ZIPCODE,
-    USERNAME,
-    PASSWORD
+INSERT INTO Users(
+    firstname,
+    lastname,
+    zipCode,
+    username,
+    password
 ) VALUES (
     'John',
     'Doe',
@@ -102,12 +102,12 @@ INSERT INTO USERS(
     'password890'
 );
 
-INSERT INTO CREDITCARDS(
-    CREDITCARDNUMBER,
-    CREDITCARDHOLDERID,
-    CREDITCARDNAME,
-    CREDITCARDEXPIRATIONDATE,
-    CREDITCARDSECURITYCODE
+INSERT INTO CreditCards(
+    creditCardNumber,
+    creditCardHolderId,
+    creditCardName,
+    creditCardExpirationDate,
+    creditCardSecurityCode
 ) VALUES (
     '1234567890123456',
     1,
